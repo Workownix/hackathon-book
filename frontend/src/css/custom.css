@@ -1,0 +1,377 @@
+/**
+ * Futuristic AI-Themed UI (Global CSS Overhaul)
+ *
+ * Color System:
+ * Dark Shining: #005461
+ * Light Shining: #018790
+ */
+
+/* Light Mode Defaults */
+:root {
+  --ifm-color-primary: #005461; /* Dark Shining for primary elements */
+  --ifm-color-primary-dark: #00424D;
+  --ifm-color-primary-darker: #00373E;
+  --ifm-color-primary-darkest: #002B30;
+  --ifm-color-primary-light: #006674;
+  --ifm-color-primary-lighter: #007886;
+  --ifm-color-primary-lightest: #009CA6;
+
+  --ifm-color-secondary: #018790; /* Light Shining for secondary elements/accents */
+  --ifm-color-secondary-dark: #006F76;
+  --ifm-color-secondary-darker: #006066;
+  --ifm-color-secondary-darkest: #004D51;
+  --ifm-color-secondary-light: #019DA6;
+  --ifm-color-secondary-lighter: #01B3BF;
+  --ifm-color-secondary-lightest: #01C8CC;
+
+  --ifm-background-color: #FFFFFF; /* Pure White */
+  --ifm-background-surface-color: #F8F9FA; /* Very light gray for cards/surfaces */
+  --ifm-color-content: #000000; /* Black for paragraph text */
+  --ifm-color-content-secondary: #333333; /* Darker gray for secondary text */
+
+  --ifm-navbar-background-color: var(--ifm-background-color); /* White navbar */
+  --ifm-navbar-text-color: var(--ifm-color-primary); /* Navy text for navbar */
+  --ifm-footer-background-color: var(--ifm-color-primary); /* Dark shining footer */
+  --ifm-footer-text-color: #FFFFFF; /* White text for footer */
+  --ifm-code-background-color: #F4F4F4; /* Light gray for code blocks */
+
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 84, 97, 0.1); /* Primary color with alpha */
+  --ifm-toc-border-color: #E5E5E5; /* Light border for TOC */
+
+  /* Admonition colors - using primary for info, customizing others */
+  --ifm-color-info-background: rgba(0, 84, 97, 0.1);
+  --ifm-color-info-border: var(--ifm-color-primary);
+  --ifm-color-info-text: var(--ifm-color-primary);
+
+  /* Custom Glow for effects */
+  --glow-primary: 0 0 8px rgba(0, 84, 97, 0.5), 0 0 15px rgba(0, 84, 97, 0.3);
+  --glow-secondary: 0 0 8px rgba(1, 135, 144, 0.5), 0 0 15px rgba(1, 135, 144, 0.3);
+}
+
+/* Dark Mode Overrides */
+[data-theme='dark'] {
+  --ifm-color-primary: #018790; /* Light Shining for primary elements in dark mode (headings, accents) */
+  --ifm-color-primary-dark: #006F76;
+  --ifm-color-primary-darker: #006066;
+
+  --ifm-color-secondary: #005461; /* Dark Shining for secondary elements in dark mode */
+  --ifm-color-secondary-light: #006674;
+
+  --ifm-background-color: #000000; /* Pure Black */
+  --ifm-background-surface-color: #0A0A0A; /* Dark gray for cards/surfaces - slight variation from pure black for contrast */
+  --ifm-color-content: #FFFFFF; /* Pure White for paragraph text */
+  --ifm-color-content-secondary: #E0E0E0; /* Slightly off-white for secondary text */
+
+  --ifm-navbar-background-color: #000000; /* Black for Navbar */
+  --ifm-navbar-text-color: #FFFFFF; /* White text for Navbar */
+  --ifm-footer-background-color: #000000; /* Black for Footer */
+  --ifm-footer-text-color: #FFFFFF; /* White text for Footer */
+  --ifm-code-background-color: #1A1A1A; /* Dark code block background */
+
+  --docusaurus-highlighted-code-line-bg: rgba(1, 135, 144, 0.2);
+  --ifm-toc-border-color: #333333; /* Dark border for TOC */
+
+  /* Admonition colors for dark mode */
+  --ifm-color-info-background: rgba(1, 135, 144, 0.1);
+  --ifm-color-info-border: var(--ifm-color-primary);
+  --ifm-color-info-text: var(--ifm-color-content); /* White */
+
+  --glow-primary: 0 0 8px rgba(1, 135, 144, 0.5), 0 0 15px rgba(1, 135, 144, 0.3);
+  --glow-secondary: 0 0 8px rgba(0, 84, 97, 0.5), 0 0 15px rgba(0, 84, 97, 0.3);
+}
+
+/* --- General Typography & Layout --- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--ifm-color-content);
+  background-color: var(--ifm-background-color);
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Modern font stack */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ifm-color-primary); /* Headings use primary color */
+  font-weight: 700; /* Bolder headings */
+  line-height: 1.2;
+  margin-top: 2em; /* More space above headings */
+  margin-bottom: 0.8em;
+}
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.5rem; }
+
+p {
+  color: var(--ifm-color-content);
+  line-height: 1.7; /* Increased line height for readability */
+  margin-bottom: 1em;
+}
+
+/* --- Navbar --- */
+.navbar {
+  background-color: var(--ifm-navbar-background-color);
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* More prominent shadow */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar__title {
+  color: var(--ifm-navbar-text-color) !important;
+  font-weight: 700;
+  text-shadow: var(--glow-primary); /* Soft glow for title */
+}
+
+.navbar__link {
+  color: var(--ifm-navbar-text-color) !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  position: relative;
+}
+
+.navbar__link:hover {
+  color: var(--ifm-color-secondary) !important; /* Secondary color on hover */
+  background-color: rgba(0, 84, 97, 0.05); /* Subtle background for hover */
+  text-shadow: var(--glow-secondary);
+}
+
+[data-theme='dark'] .navbar__link:hover {
+  background-color: rgba(1, 135, 144, 0.1);
+  color: var(--ifm-color-primary) !important;
+  text-shadow: var(--glow-primary);
+}
+
+.navbar__link--active {
+  color: var(--ifm-color-secondary) !important;
+  background-color: rgba(0, 84, 97, 0.1);
+  font-weight: 600;
+  border-bottom: 2px solid var(--ifm-color-secondary);
+}
+[data-theme='dark'] .navbar__link--active {
+  color: var(--ifm-color-primary) !important;
+  background-color: rgba(1, 135, 144, 0.15);
+  border-bottom: 2px solid var(--ifm-color-primary);
+}
+
+
+/* --- Links --- */
+a {
+  color: var(--ifm-color-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+  color: var(--ifm-color-secondary-light);
+  text-decoration: underline;
+  text-shadow: 0 0 5px rgba(1, 135, 144, 0.3);
+}
+
+.theme-doc-markdown a {
+  font-weight: 500;
+}
+
+/* --- Buttons --- */
+.button {
+  transition: all 0.3s ease;
+  font-weight: 600;
+  border-radius: 8px; /* Slightly more rounded */
+  padding: 0.8rem 1.6rem;
+  text-transform: uppercase; /* Professional button text */
+  letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
+}
+
+.button--primary {
+  background: linear-gradient(90deg, var(--ifm-color-primary) 0%, var(--ifm-color-secondary) 100%); /* Gradient background */
+  color: #FFFFFF;
+  border: none;
+}
+
+.button--primary:hover {
+  background: linear-gradient(90deg, var(--ifm-color-secondary) 0%, var(--ifm-color-primary) 100%); /* Reverse gradient on hover */
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--glow-secondary); /* Glow effect on hover */
+}
+
+.button--outline {
+  background-color: transparent;
+  color: var(--ifm-color-primary);
+  border: 2px solid var(--ifm-color-primary);
+}
+
+.button--outline:hover {
+  background-color: var(--ifm-color-primary);
+  color: #FFFFFF;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--glow-primary);
+}
+
+/* Dark mode specific button styles */
+[data-theme='dark'] .button--primary {
+  background: linear-gradient(90deg, var(--ifm-color-primary) 0%, var(--ifm-color-secondary) 100%);
+  color: #FFFFFF;
+  border: none;
+}
+[data-theme='dark'] .button--primary:hover {
+  background: linear-gradient(90deg, var(--ifm-color-secondary) 0%, var(--ifm-color-primary) 100%);
+  box-shadow: var(--glow-primary);
+}
+[data-theme='dark'] .button--outline {
+  color: var(--ifm-color-primary);
+  border: 2px solid var(--ifm-color-primary);
+}
+[data-theme='dark'] .button--outline:hover {
+  background-color: var(--ifm-color-primary);
+  color: #000000; /* Black text on bright primary button in dark mode */
+  box-shadow: var(--glow-primary);
+}
+
+/* --- Code Blocks --- */
+div[class*="codeBlockContainer_"] {
+    border-radius: 10px; /* More rounded */
+    border: 1px solid var(--ifm-toc-border-color);
+    background-color: var(--ifm-code-background-color);
+    margin-bottom: 1.5em; /* More spacing */
+}
+
+/* --- Admonitions (notes, tips, etc.) --- */
+.admonition {
+    border-left-width: 5px; /* Thicker border */
+    border-radius: 10px; /* More rounded */
+    background-color: var(--ifm-background-surface-color);
+    border-color: var(--ifm-color-primary);
+    padding: 1.5em;
+    margin-bottom: 1.5em;
+}
+.admonition-info {
+    background-color: rgba(0, 84, 97, 0.1);
+    border-color: var(--ifm-color-primary);
+    color: var(--ifm-color-primary);
+}
+.admonition-caution {
+  background-color: rgba(255, 193, 7, 0.1); /* Yellow tint */
+  border-color: #FFC107;
+  color: #B8860B;
+}
+.admonition-danger {
+  background-color: rgba(220, 53, 69, 0.1); /* Red tint */
+  border-color: #DC3545;
+  color: #A52A2A;
+}
+.admonition > .admonition-content > p {
+  color: inherit;
+}
+
+
+/* --- Cards and Menus --- */
+.card, .menu, .menu__list-item-collapsible, .table-of-contents, .pagination-nav {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 10px; /* More rounded */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  margin-bottom: 1em; /* Spacing for cards */
+}
+
+.card:hover {
+  border-color: var(--ifm-color-secondary);
+  box-shadow: var(--glow-secondary);
+}
+
+.menu .menu__link {
+  color: var(--ifm-color-content-secondary);
+  transition: all 0.3s ease;
+  padding: 0.8rem 1rem; /* More padding */
+  border-radius: 6px;
+}
+
+.menu .menu__link:hover {
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-color-primary);
+}
+
+.menu .menu__link--active {
+  background-color: var(--docusaurus-highlighted-code-line-bg);
+  color: var(--ifm-color-primary);
+  font-weight: 700; /* Bolder active link */
+  border-left: 3px solid var(--ifm-color-primary); /* Accent border */
+  padding-left: calc(1rem - 3px); /* Adjust padding for border */
+}
+[data-theme='dark'] .menu .menu__link--active {
+  background-color: rgba(1, 135, 144, 0.15);
+  color: var(--ifm-color-primary);
+  border-left-color: var(--ifm-color-primary);
+}
+
+
+/* --- Table of Contents (TOC) --- */
+.table-of-contents {
+  position: sticky;
+  top: var(--ifm-navbar-height);
+  padding: 1.5rem; /* More padding */
+  margin-top: 1.5rem;
+  border-left: none;
+  border-radius: 10px;
+}
+.table-of-contents__link {
+  color: var(--ifm-color-content-secondary);
+  transition: color 0.3s ease;
+}
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary);
+  font-weight: 700;
+}
+.table-of-contents__link:hover {
+  color: var(--ifm-color-secondary);
+}
+
+/* --- Footer --- */
+.footer {
+  background-color: var(--ifm-footer-background-color);
+  color: var(--ifm-footer-text-color);
+  padding: 3rem 0; /* More padding */
+}
+.footer__link-item {
+  color: var(--ifm-footer-text-color);
+  transition: color 0.3s ease;
+}
+.footer__link-item:hover {
+  color: var(--ifm-color-secondary);
+}
+.footer__copyright {
+  color: var(--ifm-footer-text-color);
+  margin-top: 1.5rem;
+}
+
+/* Scrollbar Styling for Webkit browsers */
+::-webkit-scrollbar {
+  width: 10px; /* Thicker scrollbar */
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ifm-background-surface-color);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--ifm-color-primary), var(--ifm-color-secondary)); /* Gradient thumb */
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, var(--ifm-color-secondary), var(--ifm-color-primary));
+}
+
+/* Responsive adjustments */
+@media (max-width: 996px) {
+  .navbar {
+    border-bottom: 1px solid var(--ifm-toc-border-color);
+  }
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.8rem; }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "hackathon-book-monorepo",
+  "version": "1.0.0",
+  "description": "Root runner for the hackathon book project",
+  "private": true,
+  "scripts": {
+    "install:all": "npm run install:frontend && npm run install:backend",
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && python -m venv venv && venv\\Scripts\\pip install -r requirements.txt",
+    "start": "npx concurrently \"npm:start:frontend\" \"npm:start:backend\"",
+    "start:frontend": "cd frontend && npm start",
+    "start:backend": "cd backend && venv\\Scripts\\python.exe -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload",
+    "build": "cd frontend && npm run build"
+  },
+  "author": "",
+  "license": "ISC"
+}

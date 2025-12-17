@@ -1,0 +1,30 @@
+# FastAPI Backend for Physical AI Textbook
+fastapi<0.100.0
+uvicorn[standard]==0.27.0
+python-dotenv==1.0.0
+pydantic==1.10.13
+pydantic-settings
+openai==1.12.0
+qdrant-client==1.9.0
+psycopg2-binary
+sqlalchemy==2.0.25
+python-jose[cryptography]==3.4.0
+passlib[bcrypt]==1.7.4
+bcrypt==3.2.0
+python-multipart==0.0.18
+httpx==0.26.0
+tiktoken==0.5.2
+tqdm==4.66.3
+
+# RAG System Dependencies
+langchain==0.1.20
+langchain-openai==0.1.7
+langchain-community==0.0.38
+pypdf2==3.0.1
+pdfplumber==0.11.0
+faiss-cpu==1.13.1
+sentence-transformers==2.7.0
+chromadb==0.4.24
+rank-bm25==0.2.2
+transformers==4.40.0
+torch==2.9.1
